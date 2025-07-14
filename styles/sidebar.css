@@ -1,0 +1,233 @@
+/* Sidebar Styles */
+.sidebar {
+    width: 280px;
+    background: white;
+    border-right: 1px solid #e5e5e7;
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+.sidebar-section {
+    padding: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #1d1d1f;
+}
+
+/* Elements Grid */
+.elements-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.element-item {
+    padding: 16px 12px;
+    border: 2px solid #f0f0f0;
+    border-radius: 8px;
+    background: #fafafa;
+    cursor: grab;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.element-item:hover {
+    border-color: #007aff;
+    background: #f8f9ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 122, 255, 0.15);
+}
+
+.element-item:active {
+    cursor: grabbing;
+    transform: translateY(0);
+}
+
+.element-item.dragging {
+    opacity: 0.5;
+}
+
+.element-item i {
+    font-size: 20px;
+    color: #007aff;
+}
+
+.element-item span {
+    font-size: 12px;
+    font-weight: 500;
+    color: #666;
+    text-align: center;
+}
+
+/* Rating Display */
+.rating-display {
+    text-align: center;
+}
+
+.rating-score {
+    margin-bottom: 16px;
+}
+
+.rating-score .score {
+    font-size: 32px;
+    font-weight: 700;
+    color: #007aff;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.stars {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+}
+
+.stars i {
+    font-size: 16px;
+    color: #ffd700;
+}
+
+.stars .far {
+    color: #e5e5e7;
+}
+
+.rating-metrics {
+    text-align: left;
+}
+
+.metric {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.metric:last-child {
+    border-bottom: none;
+}
+
+.metric-label {
+    font-size: 14px;
+    color: #666;
+}
+
+.metric-value {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: #f0f0f0;
+}
+
+.metric-value.excellent {
+    background: #d4edda;
+    color: #155724;
+}
+
+.metric-value.good {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.metric-value.fair {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Responsive Sidebar */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 240px;
+    }
+    
+    .elements-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .element-item {
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 12px;
+    }
+    
+    .element-item i {
+        font-size: 16px;
+    }
+    
+    .element-item span {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+    
+    .sidebar-section {
+        padding: 16px;
+    }
+    
+    .section-title {
+        font-size: 14px;
+    }
+    
+    .rating-score .score {
+        font-size: 24px;
+    }
+}
+
+/* Drag Preview */
+.drag-preview {
+    position: fixed;
+    top: -9999px;
+    left: -9999px;
+    z-index: 9999;
+    padding: 8px 12px;
+    background: rgba(0, 122, 255, 0.9);
+    color: white;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Sidebar Animation */
+.sidebar-section {
+    animation: slideInLeft 0.3s ease;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Element Icons Color Variations */
+.element-item[data-element="text"] i { color: #34c759; }
+.element-item[data-element="heading"] i { color: #ff9500; }
+.element-item[data-element="button"] i { color: #007aff; }
+.element-item[data-element="image"] i { color: #ff3b30; }
+.element-item[data-element="container"] i { color: #5856d6; }
+.element-item[data-element="input"] i { color: #32d74b; }
+.element-item[data-element="textarea"] i { color: #ff9500; }
+.element-item[data-element="link"] i { color: #64d2ff; }
+.element-item[data-element="flexbox"] i { color: #af52de; }
+.element-item[data-element="grid"] i { color: #ffcc02; }
+.element-item[data-element="section"] i { color: #ff6b6b; }
