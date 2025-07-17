@@ -1,4 +1,4 @@
-// Storage Manager for saving and loading projects
+// Storage Manager for saving and loading project
 class StorageManager {
     constructor() {
         this.storageKey = 'webcraft_project';
