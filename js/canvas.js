@@ -1,3 +1,4 @@
+
 // Canvas Manager
 class CanvasManager {
     constructor() {
@@ -559,3 +560,6 @@ class CanvasManager {
         // console.log('Canvas state updated, total elements:', this.elements.size);
     }
 }
+
+
+
